@@ -5,7 +5,6 @@ public class Frame extends JFrame{
 
 	private static final long serialVersionUID = 1L;
 	
-	
 	/*Construtor da interface, que quando chamado na main, irá criar a interface com o usuário.
 	 *Dentro deste contrutor, são criados outros objetos que serão então inseridos na interface*/
 	

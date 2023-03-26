@@ -11,7 +11,6 @@ import javax.sound.midi.Sequence;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-
 /* Classe responsável por criar o menu de opções para manipulação
  * de arquivos, assim como trabalhar com os arquivos propriamente
  * ditos. Aqui, são criados métodos para todos os casos que 

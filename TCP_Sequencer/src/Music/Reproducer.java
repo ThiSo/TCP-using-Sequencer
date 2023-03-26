@@ -1,4 +1,5 @@
 package Music;
+
 import javax.sound.midi.*;
 
 /* Classe que efetivamente toca a música correspondente ao texto
