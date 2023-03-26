@@ -4,18 +4,27 @@ import java.awt.Font;
 import javax.swing.*;
 import javax.swing.border.Border;
 
+/* Classe responsável por criar construtores para as labels
+ * Aqui, existem três construtores que recebem parâmetros diferentes
+ * apesar de esta escolha de implementação ocasionar uma repetição
+ * de alguns trechos de código, ela apresenta uma vantagem em relação
+ * a criação de um só construtor: não há necessidade de fazer correções
+ * nas labels dentro da classe que as cria (frame) */
+
 public class Label extends JLabel{
 
 	private static final long serialVersionUID = 1L;
 	
-	//construtor da label de texto
+	/* Construtor da label de cabeçalho da interface
+	 * que apresenta uma mensagem acima da caixa de texto*/
+	
 	Label(String text){
 		
-		int labelPosX = 10;
-		int labelPosY = 10;
-		int labelWidth =375;
-		int labelHeight = 30;
-		int labelFontSize = 20;
+		final int labelPosX = 10;
+		final int labelPosY = 10;
+		final int labelWidth =375;
+		final int labelHeight = 30;
+		final int labelFontSize = 20;
 		Border border = BorderFactory.createLineBorder(Color.black, 2);
 		
 		this.setText(text);
@@ -29,14 +38,17 @@ public class Label extends JLabel{
 		this.setFont(new Font("Arial", Font.PLAIN, labelFontSize));
 	}
 	
-	//Construtor da Label de glossário
+	/* Construtor da label de glossário que fica direita 
+	 * da caixa de texto e que apresenta o mapeamento de caracteres 
+	 * definido na especificação do trabalho*/
+	
 	Label(){
 		
-		int labelPosX = 390;
-		int labelPosY = 50;
-		int labelWidth = 190;
-		int labelHeight = 360;
-		int labelFontSize = 13;
+		final int labelPosX = 390;
+		final int labelPosY = 50;
+		final int labelWidth = 190;
+		final int labelHeight = 360;
+		final int labelFontSize = 13;
 		Border border = BorderFactory.createLineBorder(Color.black, 2);
 		
 		this.setText("<html>"
@@ -67,13 +79,16 @@ public class Label extends JLabel{
 		this.setFont(new Font("Arial", Font.PLAIN, labelFontSize));
 	}
 	
-	//construtor da Label de imagem
+	/* Construtor da label de imagem que fica abaixo da label 
+	 * de glossário, e que apresenta uma imagem da logo
+	 * do instituto de informática na interface*/
+	
 	Label(ImageIcon image){
 				
-		int labelPosX = 435;
-		int labelPosY = 460;
-		int labelWidth = 100;
-		int labelHeight = 100;
+		final int labelPosX = 435;
+		final int labelPosY = 460;
+		final int labelWidth = 100;
+		final int labelHeight = 100;
 		
 		this.setIcon(image);
 		this.setBounds(labelPosX, labelPosY, labelWidth, labelHeight);

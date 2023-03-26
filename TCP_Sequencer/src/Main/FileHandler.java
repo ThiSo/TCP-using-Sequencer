@@ -12,6 +12,12 @@ import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 
+/* Classe responsável por criar o menu de opções para manipulação
+ * de arquivos, assim como trabalhar com os arquivos propriamente
+ * ditos. Aqui, são criados métodos para todos os casos que 
+ * envolvem arquivos: carregamento de um txt pelo usuário e
+ * salvamento do arquivo midi de saída, após execução do software */
+
 public class FileHandler extends JMenuBar implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
@@ -21,12 +27,16 @@ public class FileHandler extends JMenuBar implements ActionListener{
 	static JMenuItem close;
 	JTextArea textBox;
 	
+	/* Construtor para o menu de arquivos, onde itens de menu
+	 * são instânciados e adicionados no menu em sí
+	 * todos possuem uma rotina do que fazer ao serem clicados */
+	
 	FileHandler(JTextArea textBox){
 		
 		JMenu fileMenu = new JMenu("Arquivo");
 		openFile = new JMenuItem("Abrir");
 		saveFile = new JMenuItem("Salvar");
-		close = new JMenuItem("close");
+		close = new JMenuItem("Fechar");
 		
 		openFile.addActionListener(this);
 		saveFile.addActionListener(this);
@@ -41,6 +51,9 @@ public class FileHandler extends JMenuBar implements ActionListener{
 		this.add(fileMenu);
 	}
 
+	/* Método que abre um arquivo texto do usuário e, utilizando um scanner,
+	 * passa para a caixa de texto, preservando o conteúdo original dela */
+	
 	public void openFileFunc() {
 	
 		JFileChooser textOpener =  new JFileChooser();
@@ -72,6 +85,11 @@ public class FileHandler extends JMenuBar implements ActionListener{
 		}
 	}
 	
+	/* Método utilizado para salvar o arquivo de saída do software
+	 * abre uma janela do explorador de arquivos do windows, onde
+	 * o usuário pode escolher o locao onde o arquivo deve ser salvo,
+	 * e também deve colocar o nome de seu arquivo */
+	
 	public void saveFileFunc(Sequence sequence) throws IOException {
 		
 		JFileChooser midiSaver =  new JFileChooser();
@@ -85,10 +103,18 @@ public class FileHandler extends JMenuBar implements ActionListener{
 		}
 	}
 	
+	/* Método que encerra a execução do software */
+	
 	public void closeSoftware() {
 		
 		System.exit(0);
 	}
+	
+	/* Rotina chamada quando o usuário executa alguma interação
+	 * com o programa. No caso desta classe, a rotina ativa quando
+	 * o usuário clica em algum dos itens do menu de arquivos.
+	 * A rotina então valida qual dos itens de menu foi clicado, 
+	 * e chama a função correspondente */
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -104,7 +130,9 @@ public class FileHandler extends JMenuBar implements ActionListener{
 			
 			try {
 				saveFileFunc(Button.sequence);
+				
 			} catch (IOException e1) {
+				
 				e1.printStackTrace();
 			}	
 		}
