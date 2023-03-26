@@ -1,5 +1,4 @@
 package Music;
-
 import javax.sound.midi.*;
 
 /* Classe que possui diversos métodos que trabalham
